@@ -1,22 +1,36 @@
 
 function create(params, callback) {
-    db.query('insert into unidades set ?', params, callback);
+    db.query('call registrar_unidad(?, ?)', [params.id, params.nombre], callback);
 }
 
 function readAll(callback) {
-    db.query('select * from unidades order by nombre', callback);
+    db.query('call listar_unidades', function(err, rows) {
+        // separar registros obtenidos de información adicional
+        if(!rows || rows.length < 2) {
+            callback(err);
+        } else {
+            callback(err, rows[0], rows[1]);
+        }
+    });
 }
 
 function read(id, callback) {
-    db.query('select * from unidades where id = ?', id, callback);
+    db.query('call listar_unidad(?)', id, function(err, rows) {
+        // separar registros obtenidos de información adicional
+        if(!rows || rows.length < 2) {
+            callback(err);
+        } else {
+            callback(err, rows[0], rows[1]);
+        }
+    });
 }
 
 function update(params, id, callback) {
-    db.query('update unidades set ? where id = ?', [params, id], callback);
+    db.query('call actualizar_unidad(?, ?)', [id, params.nombre], callback);
 }
 
 function _delete(id, callback) {
-    db.query('delete from unidades where id = ?', id, callback);
+    db.query('call eliminar_unidad(?)', id, callback);
 }
 
 // Exportar métodos

@@ -30,9 +30,24 @@ BEGIN
 	select * from unidades order by nombre;
 END;
 
+CREATE PROCEDURE listar_unidad (_id VARCHAR(5))
+BEGIN
+	select * from unidades where id = _id;
+END;
+
 CREATE PROCEDURE registrar_unidad(id VARCHAR(5), nombre VARCHAR(100))
 BEGIN
 	insert into unidades (id, nombre) values(id, nombre);
+END;
+
+CREATE PROCEDURE actualizar_unidad(_id VARCHAR(5), nombre VARCHAR(100))
+BEGIN
+	update unidades set nombre = nombre where id = _id;
+END;
+
+CREATE PROCEDURE eliminar_unidad(_id VARCHAR(5))
+BEGIN
+	delete from unidades where id = _id;
 END;
 
 CREATE PROCEDURE listar_categorias ()
