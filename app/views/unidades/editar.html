@@ -5,12 +5,12 @@
     <h2 class="form-signin-heading">{{title}}</h2>
     
     <label>Código</label>
-    <input type="text" name="id" class="form-control" placeholder="kg, und">
+    <input type="text" name="id" class="form-control" placeholder="kg, und" {% if unidad %}value="{{unidad.id}}" disabled{% endif %}>
     
     <br>
     
     <label>Nombre o descripción</label>
-    <input type="text" name="nombre" class="form-control">
+    <input type="text" name="nombre" class="form-control" {% if unidad %}value="{{unidad.nombre}}"{% endif %}>
     
     <br>
     

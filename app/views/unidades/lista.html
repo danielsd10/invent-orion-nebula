@@ -12,16 +12,18 @@
             <th>Nombre</th>
             <th></th>
         </tr>
+        {% for unidad in unidades %}
         <tr>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
+            <td>{{unidad.id}}</td>
+            <td>{{unidad.nombre}}</td>
             <td class="cell-actions">
                 <div class="btn-group">
-                    <a class="btn btn-xs btn-warning" href="#"><span class="glyphicon glyphicon-pencil"></span></a>
-                    <a class="btn btn-xs btn-danger" href="#"><span class="glyphicon glyphicon-trash"></span></a>
+                    <a class="btn btn-xs btn-warning" href="/unidades/editar/{{unidad.id}}"><span class="glyphicon glyphicon-pencil"></span></a>
+                    <a class="btn btn-xs btn-danger" href="/unidades/eliminar/{{unidad.id}}"><span class="glyphicon glyphicon-trash"></span></a>
                 </div>
             </td>
         </tr>
+        {% endfor %}
     </table>
 </div>
 {% endblock %}
