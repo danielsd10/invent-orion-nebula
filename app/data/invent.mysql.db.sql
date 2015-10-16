@@ -85,7 +85,12 @@ END;
 
 CREATE PROCEDURE buscar_usuario(_username VARCHAR(40), _password VARCHAR(40))
 BEGIN
-	select * from usuarios where username = _username and password = _password;
+	select * from usuarios where username = _username and password = SHA1(_password);
+END;
+
+CREATE PROCEDURE listar_usuario(_id INTEGER)
+BEGIN
+	select * from usuarios where id = _id;
 END;
 
 INSERT INTO usuarios (nombre, username, password) VALUES ('Administrador', 'admin', SHA1('admin'));

@@ -8,9 +8,10 @@ router.get('/', Controllers.welcome);
 
 /* Auth */
 router.get('/login', Controllers.Auth.loginForm);
-router.post('/login', passport.authenticate('local', { successRedirect: '/',
+router.post('/login', passport.authenticate('local', {
+    successRedirect: '/',
     failureRedirect: '/login',
-    failureFlash: true }));
+    failureFlash: true}));
 
 /* Vistas por módulo */
 router.get('/unidades', Controllers.Unidades.index);
