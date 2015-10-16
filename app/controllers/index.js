@@ -6,8 +6,8 @@ Controllers.welcome = function(req, res, next) {
 };
 
 // controladores por módulo
-Controllers.Unidades = require('./unidades')();
-Controllers.Categorias = require('./categorias')();
-Controllers.Productos = require('./productos')();
+Controllers.Unidades = require('./unidades');
+Controllers.Categorias = require('./categorias');
+Controllers.Productos = require('./productos');
 
 module.exports = Controllers;

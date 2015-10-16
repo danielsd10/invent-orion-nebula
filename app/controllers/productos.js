@@ -10,9 +10,9 @@ function registrarProducto(req, res, next) {
 }
 
 // Exportar métodos
-module.exports = function() {
+module.exports = (function() {
     var Controller = {};
     Controller.index = listaProductos;
     Controller.registrar = registrarProducto;
     return Controller;
-};
+})();

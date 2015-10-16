@@ -43,11 +43,11 @@ function eliminarUnidad(req, res, next) {
 }
 
 // Exportar métodos
-module.exports = function() {
+module.exports = (function() {
     var Controller = {};
     Controller.index = listarUnidades;
     Controller.editar = editarUnidad;
     Controller.guardar = guardarUnidad;
     Controller.eliminar = eliminarUnidad;
     return Controller;
-};
+})();
