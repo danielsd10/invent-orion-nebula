@@ -1,0 +1,58 @@
+{% extends "../template.html" %}
+
+{% block content %}
+<form action="" class="form-box" role="form">
+    <h2 class="form-signin-heading">{{title}}</h2>
+
+    <div class="alert alert-danger" role="alert" style="display: none;"></div>
+
+    <label>Código del Producto</label>
+    <input type="text" name="codigo" class="form-control" placeholder="PRD-001">
+
+    <br>
+
+    <label>Nombre del Producto</label>
+    <input type="text" name="nombre" class="form-control">
+    
+    <br>
+    
+    <label>Marca</label>
+    <input type="text" name="marca" class="form-control">
+    
+    <br>
+    
+    <label>Tipo de Producto</label>
+    <br>
+    <label class="checkbox-inline">
+        <input type="radio" name="tipo" value="I"> Insumo
+    </label>
+    <label class="checkbox-inline">
+        <input type="radio" name="tipo" value="F" checked="checked"> Producto final
+    </label>
+    
+    <br><br>
+    
+    <label>Unidad de Medida</label>
+    <select name="unidad" class="form-control">
+        <option value=""></option>
+    </select>
+    
+    <br><br>
+    
+    <label>Categor&iacute;a</label>
+    <select name="unidad" class="form-control">
+        <option value=""></option>
+    </select>
+    
+    <br>
+
+    <div class="row">
+        <div class="col-md-8">
+            <input type="submit" class="btn btn-lg btn-primary btn-block" value="Guardar">
+        </div>
+        <div class="col-md-4">
+            <a class="btn btn-lg btn-default btn-block" href="/productos">Cancelar</a>
+        </div>
+    </div>
+</form>
+{% endblock %}

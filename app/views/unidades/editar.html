@@ -1,0 +1,26 @@
+{% extends "../template.html" %}
+
+{% block content %}
+<form action="" method="post" class="form-box" role="form">
+    <h2 class="form-signin-heading">{{title}}</h2>
+    
+    <label>Código</label>
+    <input type="text" name="id" class="form-control" placeholder="kg, und">
+    
+    <br>
+    
+    <label>Nombre o descripción</label>
+    <input type="text" name="nombre" class="form-control">
+    
+    <br>
+    
+    <div class="row">
+        <div class="col-md-8">
+            <input type="submit" class="btn btn-lg btn-primary btn-block" value="Guardar">        
+        </div>
+        <div class="col-md-4">
+            <a class="btn btn-lg btn-default btn-block" href="/unidades">Cancelar</a>
+        </div>
+    </div>
+</form>
+{% endblock %}
