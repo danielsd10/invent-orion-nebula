@@ -9,6 +9,15 @@
     <link href="/css/bootstrap.min.css" rel="stylesheet" media="screen">
     <link href="/css/font-awesome.min.css" rel="stylesheet" media="screen">
 
+    <style>
+        .navbar-top-links {
+            margin-right: 5px;
+        }
+        .navbar-top-links li a img {
+            height: 30px;
+        }
+    </style>
+
     <!-- jQuery & Bootstrap  -->
     <script src="/js/jquery.js"></script>
     <script src="/js/bootstrap.min.js"></script>
@@ -22,6 +31,20 @@
                 <li><a href="/unidades">Unidades</a></li>
                 <li><a href="/categorias">Categor&iacute;as</a></li>
                 <li><a href="/productos">Productos</a></li>
+            </ul>
+            <ul class="nav navbar-top-links navbar-right">
+                <li class="dropdown">
+                    <a class="dropdown-toggle text-center" data-toggle="dropdown" href="#">
+                        <span class="text-muted">admin@domain.com</span>
+                        <img src="img/profile_small.jpg" class="img-circle">
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a href="#"><i class="fa fa-user fa-fw"></i> Perfil</a></li>
+                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Configuración</a></li>
+                        <li class="divider"></li>
+                        <li><a href="/logout"><i class="fa fa-sign-out fa-fw"></i> Cerrar sesión</a></li>
+                    </ul>
+                </li>
             </ul>
         </nav>
         {% block content %}
