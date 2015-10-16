@@ -3,9 +3,9 @@
 /**
  * Module dependencies.
  */
-
+global.db = require('../lib/mysql'); // global database instance
 var app = require('../app');
-var debug = require('debug')('AppTareas:server');
+var debug = require('debug')('invent:server');
 var http = require('http');
 
 /**
@@ -54,6 +54,9 @@ function normalizePort(val) {
  */
 
 function onError(error) {
+  // close database connection
+  db.end();
+
   if (error.syscall !== 'listen') {
     throw error;
   }
