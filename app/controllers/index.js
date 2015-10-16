@@ -9,5 +9,6 @@ Controllers.welcome = function(req, res, next) {
 Controllers.Unidades = require('./unidades');
 Controllers.Categorias = require('./categorias');
 Controllers.Productos = require('./productos');
+Controllers.Auth = require('./auth');
 
 module.exports = Controllers;

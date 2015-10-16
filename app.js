@@ -6,6 +6,23 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var swig = require('swig');
 
+var passport = require('./lib/passport');
+/*var passport = require('passport'),
+    LocalStrategy = require('passport-local').Strategy,
+    Usuarios = require('./app/models/Usuarios');
+
+passport.use(new LocalStrategy(
+    function(username, password, done) {
+        Usuarios.findOne({ username: username, password: password }, function(err, user) {
+            if (err) { return done(err); }
+            if (!user) {
+                return done(null, false, { message: 'Incorrect username or password.' });
+            }
+            return done(null, user);
+        });
+    }
+));*/
+
 var routes = require('./app/routes');
 
 var app = express();
@@ -23,6 +40,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(passport.initialize());
+app.use(passport.session());
 app.use('/', routes);
 
 // catch 404 and forward to error handler

@@ -25,6 +25,14 @@ REFERENCES unidades (id) ON UPDATE CASCADE ON DELETE CASCADE;
 ALTER TABLE productos ADD CONSTRAINT FK_productos_categorias FOREIGN KEY(categoria_id)
 REFERENCES categorias (id) ON UPDATE CASCADE ON DELETE CASCADE;
 
+CREATE TABLE IF NOT EXISTS usuarios(
+	id INTEGER NOT NULL AUTO_INCREMENT,
+	nombre VARCHAR(100) NOT NULL,
+	username VARCHAR(40) NOT NULL,
+	password VARCHAR(40) NOT NULL,
+	fecha_registro TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+CONSTRAINT PK_usuarios PRIMARY KEY (id));
+
 CREATE PROCEDURE listar_unidades ()
 BEGIN
 	select * from unidades order by nombre;
@@ -74,3 +82,10 @@ CREATE PROCEDURE registrar_producto(nombre VARCHAR(100), marca VARCHAR(100), uni
 BEGIN
 	insert into productos (nombre, marca, unidad_id, categoria_id, precio) values(nombre, marca, unidad, categoria, precio);
 END;
+
+CREATE PROCEDURE buscar_usuario(_username VARCHAR(40), _password VARCHAR(40))
+BEGIN
+	select * from usuarios where username = _username and password = _password;
+END;
+
+INSERT INTO usuarios (nombre, username, password) VALUES ('Administrador', 'admin', SHA1('admin'));

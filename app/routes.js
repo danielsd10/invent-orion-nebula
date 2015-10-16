@@ -1,9 +1,16 @@
 var express = require('express');
+var passport = require('passport');
 var router = express.Router();
 var Controllers = require('./controllers');
 
 /* GET home page */
 router.get('/', Controllers.welcome);
+
+/* Auth */
+router.get('/login', Controllers.Auth.loginForm);
+router.post('/login', passport.authenticate('local', { successRedirect: '/',
+    failureRedirect: '/login',
+    failureFlash: true }));
 
 /* Vistas por módulo */
 router.get('/unidades', Controllers.Unidades.index);
